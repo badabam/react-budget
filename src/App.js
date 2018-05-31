@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createStore } from 'redux'
+
 import styled from 'react-emotion'
 import { injectGlobal } from 'emotion'
 
@@ -13,7 +14,8 @@ import LunchButton from './components/LunchButton'
 injectGlobal(`
   body {
     margin: 0;
-    height: 100vh;
+    height: 100%;
+    overflow: hidden;
   }
 `)
 
