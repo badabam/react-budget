@@ -1,5 +1,8 @@
-export function init() {
-  return {
-    type: 'INIT',
-  }
-}
+export const onFormSubmit = () => ({
+  type: 'SUBMIT',
+})
+
+export const updateFormInput = payload => ({
+  type: 'UPDATE_INPUT',
+  payload,
+})

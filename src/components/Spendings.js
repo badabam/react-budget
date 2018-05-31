@@ -6,7 +6,9 @@ export default class Spendings extends Component {
       <div style={{ gridRow: 2 }}>
         <ul>
           {this.props.spendings.map((spending, index) => (
-            <li key={index}>Mittagessen (7,50)</li>
+            <li key={index}>
+              {spending.text} ({spending.amount})
+            </li>
           ))}
         </ul>
       </div>

@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
 import { createStore } from 'redux'
 
-import styled from 'react-emotion'
 import { injectGlobal } from 'emotion'
 
 import reducer from './reducers/reducer'
 import initialState from './reducers/initialState'
+import { onFormSubmit, updateFormInput } from './actions/actions'
 
 import BudgetHeader from './components/BudgetHeader'
+import Grid from './components/Grid'
+import SpendingForm from './components/SpendingForm'
 import Spendings from './components/Spendings'
-import LunchButton from './components/LunchButton'
 
 injectGlobal(`
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     height: 100%;
     overflow: hidden;
+    font-family: sans-serif;
+    font-size: 100%;
   }
 `)
 
@@ -25,12 +32,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-const Grid = styled('div')`
-  display: grid;
-  grid-template-rows: 40px auto 40px;
-  height: 100vh;
-`
-
 class App extends Component {
   componentDidMount() {
     store.subscribe(() => this.forceUpdate())
@@ -38,12 +39,18 @@ class App extends Component {
 
   render() {
     const state = store.getState()
+    const dispatch = actionCreator => payload =>
+      store.dispatch(actionCreator(payload))
+
     return (
       <Grid>
         <BudgetHeader restOfBudget={state.restOfBudget} />
         <Spendings spendings={state.spendings} />
-        <LunchButton
-          onLunchButtonClick={e => store.dispatch({ type: 'ADD_SPENDING' })}
+        <SpendingForm
+          textValue={state.textValue}
+          amountValue={state.amountValue}
+          onSubmit={dispatch(onFormSubmit)}
+          updateFormInput={dispatch(updateFormInput)}
         />
       </Grid>
     )

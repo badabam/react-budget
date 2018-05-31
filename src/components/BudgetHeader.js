@@ -6,7 +6,9 @@ const StyledHeader = styled('header')`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eee;
+  background: cornflowerblue;
+  color: white;
+  font-size: 1.2em;
 `
 export default class BudgetHeader extends Component {
   render() {
