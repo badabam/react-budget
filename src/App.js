@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { createStore } from 'redux'
-
+import { Provider } from 'react-redux'
 import { injectGlobal } from 'emotion'
 
 import reducer from './reducers/reducer'
 import initialState from './reducers/initialState'
-import { onFormSubmit, updateFormInput } from './actions/actions'
 
-import BudgetHeader from './components/BudgetHeader'
+import BudgetHeaderView from './containers/BudgetHeaderView'
+import SpendingFormView from './containers/SpendingFormView'
+import SpendingsView from './containers/SpendingsView'
+
 import Grid from './components/Grid'
-import SpendingForm from './components/SpendingForm'
-import Spendings from './components/Spendings'
 
 injectGlobal(`
   * {
@@ -39,20 +39,15 @@ class App extends Component {
 
   render() {
     const state = store.getState()
-    const dispatch = actionCreator => payload =>
-      store.dispatch(actionCreator(payload))
 
     return (
-      <Grid>
-        <BudgetHeader restOfBudget={state.restOfBudget} />
-        <Spendings spendings={state.spendings} />
-        <SpendingForm
-          textValue={state.textValue}
-          amountValue={state.amountValue}
-          onSubmit={dispatch(onFormSubmit)}
-          updateFormInput={dispatch(updateFormInput)}
-        />
-      </Grid>
+      <Provider store={store}>
+        <Grid>
+          <BudgetHeaderView />
+          <SpendingsView />
+          <SpendingFormView />
+        </Grid>
+      </Provider>
     )
   }
 }
