@@ -10,7 +10,6 @@ export default (state, action) => {
           ...state.spendings,
           { text: state.textValue, amount: state.amountValue },
         ],
-        restOfBudget: state.restOfBudget - state.amountValue,
         textValue: '',
         amountValue: '',
       }
