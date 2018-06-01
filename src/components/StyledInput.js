@@ -7,7 +7,7 @@ const StyledInput = styled('input')`
   border-radius: 0;
   border: none;
   background: rgba(255, 255, 255, 1);
-  color: cornflowerblue;
+  color: #333;
   padding-left: 10px;
 `
 export default StyledInput
