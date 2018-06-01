@@ -1,6 +1,8 @@
+import Actions from '../actions/actions'
+
 export default (state, action) => {
   switch (action.type) {
-    case 'SUBMIT':
+    case Actions.SUBMIT:
       if (state.amountValue.trim() === '' || state.textValue.trim() === '') {
         return state
       }
@@ -14,7 +16,7 @@ export default (state, action) => {
         amountValue: '',
       }
 
-    case 'UPDATE_INPUT':
+    case Actions.UPDATE_INPUT:
       const { name, value } = action.payload
       return { ...state, [name]: value }
 
