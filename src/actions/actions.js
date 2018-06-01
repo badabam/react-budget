@@ -1,8 +1,4 @@
-export const onFormSubmit = () => ({
-  type: 'SUBMIT',
-})
+import { createAction } from 'redux-actions'
 
-export const updateFormInput = payload => ({
-  type: 'UPDATE_INPUT',
-  payload,
-})
+export const onFormSubmit = createAction('SUBMIT')
+export const updateFormInput = createAction('UPDATE_INPUT')
