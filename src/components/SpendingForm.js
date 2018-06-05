@@ -1,25 +1,7 @@
 import React, { Component, createRef } from 'react'
-import styled from 'react-emotion'
 import StyledButton from './StyledButton'
 import StyledInput from './StyledInput'
-
-const StyledForm = styled('form')`
-  grid-row: 3;
-  padding: 0 10px 20px;
-  display: grid;
-  grid-gap: 10px;
-  position: relative;
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 100%;
-    height: 40px;
-    background: linear-gradient(transparent, hotpink, hotpink);
-  }
-`
+import StyledForm from './StyledForm'
 
 export default class SpendingForm extends Component {
   constructor(props) {
@@ -34,14 +16,14 @@ export default class SpendingForm extends Component {
   }
 
   render() {
-    const { textValue, amountValue, updateFormInput } = this.props
+    const { textValue, amountValue, onInputChange } = this.props
 
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <StyledInput
           placeholder="Name"
           onChange={e =>
-            updateFormInput({
+            onInputChange({
               name: 'textValue',
               value: e.target.value,
             })
@@ -53,7 +35,7 @@ export default class SpendingForm extends Component {
           placeholder="Amount"
           type="number"
           onChange={e =>
-            updateFormInput({
+            onInputChange({
               name: 'amountValue',
               value: e.target.value,
             })

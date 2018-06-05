@@ -9,7 +9,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onSubmit: () => dispatch(onFormSubmit()),
-  updateFormInput: spending => dispatch(updateFormInput(spending)),
+  onInputChange: spending => dispatch(updateFormInput(spending)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SpendingForm)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SpendingForm)
