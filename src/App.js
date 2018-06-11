@@ -7,7 +7,7 @@ import reducer from './reducers/reducer'
 import initialState from './reducers/initialState'
 
 import StartPage from './pages/StartPage'
-import SettingsPage from './pages/SettingsPage'
+import SettingsPageView from './containers/SettingsPageView'
 import Grid from './components/Grid'
 
 const reduxDevToolsOptions = {}
@@ -25,7 +25,7 @@ class App extends Component {
         <Router>
           <Grid>
             <Route exact path="/" component={StartPage} />
-            <Route path="/settings" component={SettingsPage} />
+            <Route path="/settings" component={SettingsPageView} />
           </Grid>
         </Router>
       </Provider>

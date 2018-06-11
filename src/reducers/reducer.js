@@ -1,8 +1,9 @@
 import Actions from '../actions'
+import { handleActions } from 'redux-actions'
 
-export default (state, action) => {
-  switch (action.type) {
-    case Actions.SUBMIT:
+export default handleActions(
+  {
+    [Actions.SUBMIT]: (state, action) => {
       if (state.amountValue.trim() === '' || state.textValue.trim() === '') {
         return state
       }
@@ -15,12 +16,15 @@ export default (state, action) => {
         textValue: '',
         amountValue: '',
       }
-
-    case Actions.UPDATE_INPUT:
+    },
+    [Actions.UPDATE_INPUT]: (state, action) => {
       const { name, value } = action.payload
       return { ...state, [name]: value }
+    },
 
-    default:
-      return state
-  }
-}
+    [Actions.UPDATE_BUDGET]: (state, action) => {
+      return { ...state, budget: action.payload }
+    },
+  },
+  {}
+)
