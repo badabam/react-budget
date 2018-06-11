@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import SpendingForm from '../components/SpendingForm'
-import { onFormSubmit, updateFormInput } from '../actions'
+import { submitForm, updateFormInput } from '../actions'
 
 const mapStateToProps = state => ({
   textValue: state.textValue,
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: () => dispatch(onFormSubmit()),
+  onSubmit: () => dispatch(submitForm()),
   onInputChange: spending => dispatch(updateFormInput(spending)),
 })
 

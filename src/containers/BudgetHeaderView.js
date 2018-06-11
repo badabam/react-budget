@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 
-import BudgetHeader from '../components/BudgetHeader'
+import Header from '../components/Header'
 
 const getSpendings = state => state.spendings
 const restOfBudget = createSelector(getSpendings, spendings =>
@@ -9,7 +9,8 @@ const restOfBudget = createSelector(getSpendings, spendings =>
 )
 
 const mapStateToProps = state => ({
-  restOfBudget: restOfBudget(state),
+  link: { url: '/settings', text: 'Settings' },
+  children: `${restOfBudget(state)} / 1000`,
 })
 
-export default connect(mapStateToProps)(BudgetHeader)
+export default connect(mapStateToProps)(Header)
