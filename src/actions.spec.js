@@ -1,11 +1,9 @@
-import { shallow, mount } from 'enzyme'
 import Actions, {
   submitForm,
   updateFormInput,
   updateBudget,
   resetAll,
 } from './actions'
-import toJson from 'enzyme-to-json'
 
 describe('actions', () => {
   it('creates the SUBMIT action', () => {
