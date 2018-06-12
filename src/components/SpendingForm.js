@@ -1,4 +1,5 @@
 import React, { Component, createRef } from 'react'
+import PropTypes from 'prop-types'
 import StyledButton from './StyledButton'
 import StyledInput from './StyledInput'
 import StyledForm from './StyledForm'
@@ -7,9 +8,12 @@ import Cleave from 'cleave.js/react'
 const MoneyInput = StyledInput.withComponent(Cleave)
 
 export default class SpendingForm extends Component {
-  constructor(props) {
-    super(props)
-    this.input = createRef()
+  input = createRef()
+
+  static propTypes = {
+    onSubmit: PropTypes.func,
+    textValue: PropTypes.string,
+    amountValue: PropTypes.string,
   }
 
   handleSubmit = e => {

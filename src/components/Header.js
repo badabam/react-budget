@@ -22,6 +22,10 @@ const HeaderLink = styled(Link)`
 `
 
 export default class Header extends Component {
+  static defaultProps = {
+    link: { left: true },
+  }
+
   render() {
     const { link } = this.props
     return (

@@ -32,7 +32,7 @@ export default class SettingsPage extends React.Component {
         </Padding>
         <Padding>
           <Label>Reset:</Label>
-          <StyledButton onClick={this.props.onReset}>Delete Data</StyledButton>
+          <StyledButton onClick={this.props.onReset}>Reset App</StyledButton>
         </Padding>
       </React.Fragment>
     )
