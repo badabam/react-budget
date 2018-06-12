@@ -22,7 +22,7 @@ export default class Spendings extends Component {
       <StyledList>
         {this.props.spendings.map((spending, index) => (
           <Row key={index}>
-            <span>{spending.text}</span>{' '}
+            <span>{spending.text}</span>
             <span>{formatCurrency(spending.amount)}</span>
           </Row>
         ))}
