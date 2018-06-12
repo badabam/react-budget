@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'react-emotion'
 import Header from '../components/Header'
 import StyledInput from '../components/StyledInput'
+import StyledButton from '../components/StyledButton'
 
 const link = { url: '/', text: 'Back', left: true }
 
@@ -28,6 +29,10 @@ export default class SettingsPage extends React.Component {
             value={this.props.value}
             onChange={this.onChange}
           />
+        </Padding>
+        <Padding>
+          <Label>Reset:</Label>
+          <StyledButton onClick={this.props.onReset}>Delete Data</StyledButton>
         </Padding>
       </React.Fragment>
     )

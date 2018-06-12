@@ -1,4 +1,5 @@
 import Actions from '../actions'
+import initialState from '../reducers/initialState'
 
 export default (state, action) => {
   switch (action.type) {
@@ -21,6 +22,10 @@ export default (state, action) => {
 
     case Actions.UPDATE_BUDGET:
       return { ...state, budget: action.payload }
+
+    case Actions.RESET_ALL:
+      return { ...initialState }
+
     default:
       return state
   }

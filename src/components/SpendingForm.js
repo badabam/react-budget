@@ -2,6 +2,9 @@ import React, { Component, createRef } from 'react'
 import StyledButton from './StyledButton'
 import StyledInput from './StyledInput'
 import StyledForm from './StyledForm'
+import Cleave from 'cleave.js/react'
+
+const MoneyInput = StyledInput.withComponent(Cleave)
 
 export default class SpendingForm extends Component {
   constructor(props) {
@@ -13,7 +16,10 @@ export default class SpendingForm extends Component {
     e.preventDefault()
     this.props.onSubmit()
     this.input.current && this.input.current.focus()
+    this.cleave.setRawValue('')
   }
+
+  onMoneyInit = cleave => (this.cleave = cleave)
 
   render() {
     const { textValue, amountValue, onInputChange } = this.props
@@ -31,15 +37,21 @@ export default class SpendingForm extends Component {
           innerRef={this.input}
           value={textValue}
         />
-        <StyledInput
+        <MoneyInput
+          options={{
+            numeral: true,
+            numeralDecimalScale: 2,
+            prefix: '€ ',
+            rawValueTrimPrefix: true,
+          }}
           placeholder="Amount"
-          type="number"
-          onChange={e =>
+          onInit={this.onMoneyInit}
+          onChange={e => {
             onInputChange({
               name: 'amountValue',
-              value: e.target.value,
+              value: e.target.rawValue,
             })
-          }
+          }}
           value={amountValue}
         />
         <StyledButton

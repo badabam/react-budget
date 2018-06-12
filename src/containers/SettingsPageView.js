@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { updateBudget } from '../actions'
+import { updateBudget, resetAll } from '../actions'
 import SettingsPage from '../pages/SettingsPage'
 
 const mapStateToProps = state => ({
@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onChange: amount => dispatch(updateBudget(amount)),
+  onReset: () => dispatch(resetAll()),
 })
 
 export default connect(
