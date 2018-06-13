@@ -11,26 +11,6 @@ import StartPage from './pages/StartPage'
 import SettingsPageView from './containers/SettingsPageView'
 import Grid from './components/Grid'
 
-import numeral from 'numeral'
-
-numeral.register('locale', 'de', {
-  delimiters: {
-    thousands: '.',
-    decimal: ',',
-  },
-  abbreviations: {
-    thousand: 'k',
-    million: 'm',
-    billion: 'b',
-    trillion: 't',
-  },
-  currency: {
-    symbol: '€',
-  },
-})
-
-numeral.locale('de')
-numeral.defaultFormat('0.0,00')
 const getInitialState = () => {
   const savedState = localStorage.getItem('state')
   if (savedState) {

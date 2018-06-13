@@ -17,8 +17,6 @@ const HeaderLink = styled(Link)`
   color: white;
   font-size: 0.8em;
   position: absolute;
-  right: ${props => (props.left ? 'auto' : '10px')};
-  left: ${props => (props.left ? '10px' : 'auto')};
 `
 
 export default class Header extends Component {
@@ -28,9 +26,15 @@ export default class Header extends Component {
 
   render() {
     const { link } = this.props
+
+    const linkPositionStyle = {
+      right: link.left ? 'auto' : '10px',
+      left: link.left ? '10px' : 'auto',
+    }
+
     return (
       <StyledHeader>
-        <HeaderLink left={link.left} to={link.url}>
+        <HeaderLink style={linkPositionStyle} to={link.url}>
           {link.text}
         </HeaderLink>
         {this.props.children}

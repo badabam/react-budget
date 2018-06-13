@@ -44,7 +44,6 @@ export default class SpendingForm extends Component {
         <MoneyInput
           options={{
             numeral: true,
-            numeralDecimalScale: 2,
             prefix: '€ ',
             rawValueTrimPrefix: true,
           }}
@@ -53,14 +52,12 @@ export default class SpendingForm extends Component {
           onChange={e => {
             onInputChange({
               name: 'amountValue',
-              value: e.target.rawValue,
+              value: Number(e.target.rawValue),
             })
           }}
           value={amountValue}
         />
-        <StyledButton
-          disabled={textValue.trim() === '' || amountValue.trim() === ''}
-        >
+        <StyledButton disabled={textValue.trim() === '' || amountValue == null}>
           Spend
         </StyledButton>
       </StyledForm>

@@ -21,7 +21,7 @@ describe('Spendings', () => {
     expect(wrapper.children()).toHaveLength(3)
   })
 
-  it('contains the right text in the row', () => {
+  it('contains the right texts', () => {
     expect(
       wrapper
         .childAt(0)
@@ -29,11 +29,9 @@ describe('Spendings', () => {
         .text()
     ).toEqual('foo')
 
-    expect(
-      wrapper
-        .childAt(0)
-        .childAt(1)
-        .text()
-    ).toEqual('3.00')
+    const keywords = ['foo', 'bar', 'baz', '3', '5', '1']
+    const html = wrapper.html()
+    const keywordIsInHtml = k => k => html.includes(k)
+    expect(keywords.every(keywordIsInHtml)).toBe(true)
   })
 })

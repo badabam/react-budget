@@ -4,7 +4,11 @@ import initialState from '../reducers/initialState'
 export default (state, action) => {
   switch (action.type) {
     case Actions.SUBMIT:
-      if (state.amountValue.trim() === '' || state.textValue.trim() === '') {
+      if (
+        state.amountValue == null ||
+        state.amountValue === 0 ||
+        state.textValue.trim() === ''
+      ) {
         return state
       }
       return {
@@ -14,7 +18,7 @@ export default (state, action) => {
           { text: state.textValue, amount: state.amountValue },
         ],
         textValue: '',
-        amountValue: '',
+        amountValue: 0,
       }
     case Actions.UPDATE_INPUT:
       const { name, value } = action.payload

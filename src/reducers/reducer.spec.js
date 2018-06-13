@@ -4,7 +4,7 @@ import reducer from './reducer'
 describe('reducer', () => {
   let state = {
     textValue: 'foo',
-    amountValue: 'bar',
+    amountValue: 3,
     spendings: [],
   }
 
@@ -13,13 +13,13 @@ describe('reducer', () => {
       expect(reducer(state, { type: Actions.SUBMIT })).toEqual({
         ...state,
         textValue: '',
-        amountValue: '',
-        spendings: [{ text: 'foo', amount: 'bar' }],
+        amountValue: 0,
+        spendings: [{ text: 'foo', amount: 3 }],
       })
     })
 
     it('returns same state on empty amountValue', () => {
-      const testState = { ...state, amountValue: '  ' }
+      const testState = { ...state, amountValue: 0 }
       expect(reducer(testState, { type: Actions.SUBMIT })).toEqual(testState)
     })
 
@@ -32,11 +32,11 @@ describe('reducer', () => {
   describe('Actions.UPDATE_INPUT', () => {
     const action = {
       type: Actions.UPDATE_INPUT,
-      payload: { name: 'foo', value: 'bar' },
+      payload: { name: 'foo', value: 3 },
     }
 
     it('updates input by name', () => {
-      expect(reducer(state, action)).toEqual({ ...state, foo: 'bar' })
+      expect(reducer(state, action)).toEqual({ ...state, foo: 3 })
     })
   })
 

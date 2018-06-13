@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'react-emotion'
-import numeral from 'numeral'
-
-const formatCurrency = num => numeral(num).format('0,0.00')
+import { formatThousands } from '../helpers'
 
 const StyledList = styled('section')`
   grid-row: 2;
@@ -23,7 +21,7 @@ export default class Spendings extends Component {
         {this.props.spendings.map((spending, index) => (
           <Row key={index}>
             <span>{spending.text}</span>
-            <span>{formatCurrency(spending.amount)}</span>
+            <span>{formatThousands(spending.amount)}</span>
           </Row>
         ))}
       </StyledList>
