@@ -13,7 +13,7 @@ export default class SpendingForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func,
     textValue: PropTypes.string,
-    amountValue: PropTypes.string,
+    amountValue: PropTypes.number,
   }
 
   handleSubmit = e => {

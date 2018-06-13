@@ -25,18 +25,21 @@ export default class Header extends Component {
   }
 
   render() {
-    const { link } = this.props
+    const { url: linkUrl, text: linkText, left: isLinkLeft } = this.props.link
 
     const linkPositionStyle = {
-      right: link.left ? 'auto' : '10px',
-      left: link.left ? '10px' : 'auto',
+      right: isLinkLeft ? 'auto' : '10px',
+      left: isLinkLeft ? '10px' : 'auto',
     }
 
     return (
       <StyledHeader>
-        <HeaderLink style={linkPositionStyle} to={link.url}>
-          {link.text}
-        </HeaderLink>
+        {linkUrl &&
+          linkText && (
+            <HeaderLink style={linkPositionStyle} to={linkUrl}>
+              {linkText}
+            </HeaderLink>
+          )}
         {this.props.children}
       </StyledHeader>
     )

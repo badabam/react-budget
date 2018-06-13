@@ -1,6 +1,6 @@
 export default {
   spendings: [],
   textValue: '',
-  amountValue: '',
+  amountValue: 0,
   budget: 1000,
 }

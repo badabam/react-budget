@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header keeps it snapshot 1`] = `
+<Styled(header)>
+  <Styled(Link)
+    style={
+      Object {
+        "left": "auto",
+        "right": "10px",
+      }
+    }
+    to="/test"
+  >
+    foo
+  </Styled(Link)>
+  test
+</Styled(header)>
+`;
+
+exports[`Header keeps it snapshot 2`] = `
+<Styled(header)>
+  <Styled(Link)
+    style={
+      Object {
+        "left": "10px",
+        "right": "auto",
+      }
+    }
+    to="/test"
+  >
+    foo
+  </Styled(Link)>
+  test
+</Styled(header)>
+`;
