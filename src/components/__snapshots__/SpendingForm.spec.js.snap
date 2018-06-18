@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpendingForm prop changes updates its amountValue 1`] = `
+<Styled(form)
+  onSubmit={[Function]}
+>
+  <Styled(input)
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+    onChange={[Function]}
+    placeholder="Name"
+    value="foo"
+  />
+  <Styled(Component)
+    onChange={[Function]}
+    onInit={[Function]}
+    options={
+      Object {
+        "numeral": true,
+        "prefix": "€ ",
+        "rawValueTrimPrefix": true,
+      }
+    }
+    placeholder="Amount"
+    value={3}
+  />
+  <Styled(button)
+    disabled={false}
+  >
+    Spend
+  </Styled(button)>
+</Styled(form)>
+`;
+
+exports[`SpendingForm prop changes updates its amountValue 2`] = `
+<Styled(form)
+  onSubmit={[Function]}
+>
+  <Styled(input)
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+    onChange={[Function]}
+    placeholder="Name"
+    value="foo"
+  />
+  <Styled(Component)
+    onChange={[Function]}
+    onInit={[Function]}
+    options={
+      Object {
+        "numeral": true,
+        "prefix": "€ ",
+        "rawValueTrimPrefix": true,
+      }
+    }
+    placeholder="Amount"
+    value={3}
+  />
+  <Styled(button)
+    disabled={false}
+  >
+    Spend
+  </Styled(button)>
+</Styled(form)>
+`;
+
+exports[`SpendingForm prop changes updates its textValue 1`] = `
+<Styled(form)
+  onSubmit={[Function]}
+>
+  <Styled(input)
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+    onChange={[Function]}
+    placeholder="Name"
+    value="foo"
+  />
+  <Styled(Component)
+    onChange={[Function]}
+    onInit={[Function]}
+    options={
+      Object {
+        "numeral": true,
+        "prefix": "€ ",
+        "rawValueTrimPrefix": true,
+      }
+    }
+    placeholder="Amount"
+    value={3}
+  />
+  <Styled(button)
+    disabled={false}
+  >
+    Spend
+  </Styled(button)>
+</Styled(form)>
+`;
+
+exports[`SpendingForm prop changes updates its textValue 2`] = `
+<Styled(form)
+  onSubmit={[Function]}
+>
+  <Styled(input)
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+    onChange={[Function]}
+    placeholder="Name"
+    value="bar"
+  />
+  <Styled(Component)
+    onChange={[Function]}
+    onInit={[Function]}
+    options={
+      Object {
+        "numeral": true,
+        "prefix": "€ ",
+        "rawValueTrimPrefix": true,
+      }
+    }
+    placeholder="Amount"
+    value={3}
+  />
+  <Styled(button)
+    disabled={false}
+  >
+    Spend
+  </Styled(button)>
+</Styled(form)>
+`;

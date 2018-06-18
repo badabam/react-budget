@@ -20,6 +20,8 @@ describe('Header', () => {
 
   it('renders its links', () => {
     wrapper = shallow(
+      // to prevent errors when using Router in the app,
+      // we need to wrap our components in MemoryRouter
       <MemoryRouter>
         <Header link={link}>
           <div>World</div>
@@ -34,6 +36,8 @@ describe('Header', () => {
 
   it('renders links also on the left', () => {
     wrapper = shallow(
+      // to prevent errors when using Router in the app,
+      // we need to wrap our components in MemoryRouter
       <MemoryRouter>
         <Header link={{ ...link, left: true }}>
           <div>World</div>
