@@ -3,6 +3,9 @@ import initialState from '../reducers/initialState'
 
 export default (state, action) => {
   switch (action.type) {
+    case Actions.OVERRIDE_LOCAL_STATE:
+      return { ...action.payload }
+
     case Actions.SUBMIT:
       if (
         state.amountValue == null ||

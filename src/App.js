@@ -11,6 +11,8 @@ import StartPage from './pages/StartPage'
 import SettingsPageView from './containers/SettingsPageView'
 import Grid from './components/Grid'
 
+import { overrideLocalState } from './actions'
+
 const getInitialState = () => {
   const savedState = localStorage.getItem('state')
   if (savedState) {
@@ -28,6 +30,15 @@ const store = createStore(
 )
 
 class App extends Component {
+  componentDidMount() {
+    fetch('/state')
+      .then(res => res.json())
+      .then(
+        state =>
+          Object.keys(state).length && store.dispatch(overrideLocalState(state))
+      )
+      .catch(console.log)
+  }
   render() {
     return (
       <Provider store={store}>

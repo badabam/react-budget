@@ -2,6 +2,7 @@
   "name": "react-budget",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "cleave.js": "1.3.7",
     "emotion": "9.1.3",
@@ -20,7 +21,9 @@
     "reselect": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start & npm run start-server",
+    "now-start": "npm run build && mv build server/build && cd server && npm install && npm start",
+    "start-server": "cd server && npm start",
     "build": "react-scripts build",
     "deploy": "npm run build && cd build && rm static/{css,js}/*.map && now --public",
     "test": "react-scripts test --env=jsdom",
@@ -40,6 +43,7 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.4",
+    "express-generator": "4.16.0",
     "jest-emotion": "9.2.2",
     "jest-localstorage-mock": "2.2.0",
     "react-hot-loader": "4.2.0"
