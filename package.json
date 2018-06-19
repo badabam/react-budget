@@ -18,12 +18,19 @@
     "react-scripts": "1.1.4",
     "redux": "4.0.0",
     "redux-actions": "2.4.0",
-    "reselect": "3.0.1"
+    "reselect": "3.0.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "nodemon": "1.17.4"
   },
   "scripts": {
     "start": "react-scripts start & npm run start-server",
-    "now-start": "npm run build && mv build server/build && cd server && npm install && npm start",
-    "start-server": "cd server && npm start",
+    "now-start": "npm run build && cp -r build server/ && npm start-server",
+    "start-server": "PORT=3001 nodemon ./server/bin/www ",
     "build": "react-scripts build",
     "deploy": "npm run build && cd build && rm static/{css,js}/*.map && now --public",
     "test": "react-scripts test --env=jsdom",
