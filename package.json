@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start & npm run start-server",
     "now-start": "npm run build && cp -r build server/ && npm start-server",
-    "start-server": "PORT=3001 nodemon ./server/bin/www ",
+    "start-server": "PORT=3001 nodemon ./server/bin/www",
     "build": "react-scripts build",
     "deploy": "npm run build && cd build && rm static/{css,js}/*.map && now --public",
     "test": "react-scripts test --env=jsdom",
