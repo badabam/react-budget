@@ -1,4 +1,4 @@
-import Actions from '../actions'
+import Actions from '../redux/actions'
 import reducer from './reducer'
 
 describe('reducer', () => {

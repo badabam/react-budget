@@ -6,6 +6,10 @@ server/node_modules
 # dependencies
 /node_modules
 
+# cordova
+/platforms
+/plugins
+
 # testing
 /coverage
 

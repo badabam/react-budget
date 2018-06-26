@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
+  "homepage": "./",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -15,6 +16,9 @@
     "chalk": "1.1.3",
     "cleave.js": "1.3.7",
     "cookie-parser": "~1.4.3",
+    "cordova-android": "7.0.0",
+    "cordova-ios": "4.5.4",
+    "cordova-plugin-whitelist": "1.3.3",
     "css-loader": "0.28.7",
     "debug": "~2.6.9",
     "dotenv": "4.0.0",
@@ -65,10 +69,13 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js & npm run start-server",
+    "start": "node scripts/start.js | npm run start-server",
     "now-start": "npm run build && cp -r build server/ && npm start-server",
     "start-server": "PORT=3001 nodemon ./server/bin/www",
     "build": "node scripts/build.js",
+    "cordova": "npx cordova",
+    "ios": "npx cordova emulate ios --debug --target 'iPhone-8, 11.1'",
+    "remotebuild": "npx run remotebuild",
     "deploy": "npm run build && cd build && rm static/{css,js}/*.map && now --public",
     "test": "node scripts/test.js --env=jsdom",
     "storybook": "start-storybook -p 9009 -s public",
@@ -88,9 +95,11 @@
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.4",
     "express-generator": "4.16.0",
+    "ios-sim": "7.0.0",
     "jest-emotion": "9.2.2",
     "jest-localstorage-mock": "2.2.0",
-    "react-hot-loader": "4.2.0"
+    "react-hot-loader": "4.2.0",
+    "remotebuild": "2.1.3"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -134,5 +143,14 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ]
   }
 }

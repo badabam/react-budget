@@ -1,22 +1,37 @@
 import React, { Component } from 'react'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route } from 'react-router-dom'
 
-import reducer from './reducers/reducer'
-import initialState from './reducers/initialState'
+import reducer from './redux/reducer'
+import initialState from './redux/initialState'
 import { useLocalStorage } from './middleware'
 
 import StartPage from './pages/StartPage'
 import SettingsPageView from './containers/SettingsPageView'
 import Grid from './components/Grid'
 
-import { overrideLocalState } from './actions'
+import { overrideLocalState } from './redux/actions'
+
+const Router = window.cordova ? HashRouter : BrowserRouter
 
 const getInitialState = () => {
-  const savedState = localStorage.getItem('state')
+  let savedState
+
+  try {
+    savedState = window.localStorage.getItem('state')
+  } catch (error) {
+    return initialState
+  }
+
   if (savedState) {
-    return JSON.parse(savedState)
+    try {
+      console.log('savedState')
+      return JSON.parse(savedState)
+    } catch (err) {
+      console.warn('ERROR: JSON parsing error')
+      return initialState
+    }
   } else {
     return initialState
   }
@@ -31,14 +46,21 @@ const store = createStore(
 
 class App extends Component {
   componentDidMount() {
+    if (!window.cordova) {
+      this.fetchState()
+    }
+  }
+
+  fetchState = () => {
     fetch('/state')
       .then(res => res.json())
+      .catch(console.log)
       .then(
         state =>
           Object.keys(state).length && store.dispatch(overrideLocalState(state))
       )
-      .catch(console.log)
   }
+
   render() {
     return (
       <Provider store={store}>
