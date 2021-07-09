@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import SpendingForm from '../components/SpendingForm'
-import { submitForm, updateFormInput } from '../actions'
+import { submitForm, updateFormInput } from '../redux/actions'
 
 const mapStateToProps = state => ({
   textValue: state.textValue,

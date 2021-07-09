@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { updateBudget, resetAll } from '../actions'
+import { updateBudget, resetAll } from '../redux/actions'
 import SettingsPage from '../pages/SettingsPage'
 
 const mapStateToProps = state => ({

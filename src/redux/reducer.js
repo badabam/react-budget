@@ -1,5 +1,5 @@
-import Actions from '../actions'
-import initialState from '../reducers/initialState'
+import Actions from '../redux/actions'
+import initialState from '../redux/initialState'
 
 export default (state, action) => {
   switch (action.type) {
